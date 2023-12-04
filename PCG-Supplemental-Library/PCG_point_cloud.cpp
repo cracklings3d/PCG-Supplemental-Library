@@ -2,7 +2,7 @@
 #include <fstream>
 
 #include "PCG_point_cloud.h"
-#include "PCG_supplimental_library.h"
+#include "PCG_supplemental_library.h"
 
 
 PCG_point_cloud PCG_point_cloud::parse_file(const std::string &file_path) {
@@ -27,7 +27,7 @@ PCG_point_cloud PCG_point_cloud::parse_file(const std::string &file_path) {
 }
 
 void PCG_point_cloud::analyze_cluster() {
-  cluster_id = PCG_supplimental_library::detect_cluster(points);
+  cluster_id = PCG_supplemental_library::detect_cluster(points);
 }
 
 // overload << for _Point

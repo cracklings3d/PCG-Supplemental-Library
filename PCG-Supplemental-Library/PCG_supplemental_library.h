@@ -10,7 +10,7 @@
 #include "CGAL/compute_average_spacing.h"
 
 
-class PCG_supplimental_library {
+class PCG_supplemental_library {
 private:
   using Kernel = CGAL::Exact_predicates_inexact_constructions_kernel;
   using Point_3 = CGAL::Point_3<Kernel>;

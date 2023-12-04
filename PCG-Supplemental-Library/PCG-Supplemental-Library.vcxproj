@@ -22,7 +22,7 @@
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{fdb48095-a50f-46b2-8f19-831db8a41f4d}</ProjectGuid>
-    <RootNamespace>PCGSupplimentalLibrary</RootNamespace>
+    <RootNamespace>PCGSupplementalLibrary</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -145,12 +145,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
-    <ClInclude Include="PCG_supplimental_library.h" />
+    <ClInclude Include="PCG_supplemental_library.h" />
     <ClInclude Include="PCG_point_cloud.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PCG_supplimental_library.cpp" />
+    <ClCompile Include="PCG_supplemental_library.cpp" />
     <ClCompile Include="PCG_point_cloud.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

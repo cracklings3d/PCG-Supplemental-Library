@@ -21,7 +21,7 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PCG_supplimental_library.h">
+    <ClInclude Include="PCG_supplemental_library.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PCG_point_cloud.h">
@@ -32,7 +32,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PCG_supplimental_library.cpp">
+    <ClCompile Include="PCG_supplemental_library.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PCG_point_cloud.cpp">

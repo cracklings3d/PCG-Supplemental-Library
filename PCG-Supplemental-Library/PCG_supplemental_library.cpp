@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-#include "PCG_supplimental_library.h"
+#include "PCG_supplemental_library.h"
 
-std::vector<size_t> PCG_supplimental_library::detect_cluster(std::vector<double> points) {
+std::vector<size_t> PCG_supplemental_library::detect_cluster(std::vector<double> points) {
   std::vector<size_t> val;
 
   Point_set ps;
@@ -31,7 +31,7 @@ std::vector<size_t> PCG_supplimental_library::detect_cluster(std::vector<double>
   return val;
 }
 
-PCG_supplimental_library::Point_set::Property_map<size_t> PCG_supplimental_library::_detect_cluster(Point_set points) {
+PCG_supplemental_library::Point_set::Property_map<size_t> PCG_supplemental_library::_detect_cluster(Point_set points) {
   std::vector<Point_set> val;
 
   Point_set::Property_map<size_t> cluster_map = points.add_property_map<size_t>("cluster id", -1).first;

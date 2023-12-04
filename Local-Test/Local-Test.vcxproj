@@ -102,7 +102,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;SOLUTION_DIR=R"($(SolutionDir))";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -130,7 +130,7 @@
     <ClCompile Include="Local-Test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PCG-Supplimental-Library\PCG-Supplimental-Library.vcxproj">
+    <ProjectReference Include="..\PCG-Supplemental-Library\PCG-Supplemental-Library.vcxproj">
       <Project>{fdb48095-a50f-46b2-8f19-831db8a41f4d}</Project>
     </ProjectReference>
   </ItemGroup>

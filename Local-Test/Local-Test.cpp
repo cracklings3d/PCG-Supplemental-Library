@@ -1,10 +1,14 @@
 #include <iostream>
 
-#include "../PCG-Supplimental-Library/PCG_point_cloud.h"
+#include "../PCG-Supplemental-Library/PCG_point_cloud.h"
 
 
-int main() {
-  PCG_point_cloud pc = PCG_point_cloud::parse_file("D:/SVN_mirror_SH/PCG_Foliage/Saved/pcg_test.bin");
+int main()
+{
+  std::string test_file_path = std::string{SOLUTION_DIR} + "pcg_test.bin";
+  PCG_point_cloud pc = PCG_point_cloud::parse_file("");
+  // get ${SolutionDir}pcg_test.bin
+
 
   pc.analyze_cluster();
 }
