@@ -21,5 +21,5 @@ public:
   static std::vector<size_t> detect_cluster(std::vector<double> points);
 
 private:
-  static Point_set::Property_map<size_t> _detect_cluster(Point_set points);
+  static Point_set _detect_cluster(Point_set points);
 };

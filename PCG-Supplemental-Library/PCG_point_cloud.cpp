@@ -7,22 +7,22 @@
 
 PCG_point_cloud PCG_point_cloud::parse_file(const std::string &file_path) {
   // open file, and simply read sequentially as byte stream. The whole file contains only double floats from start to finish.
-  std::ifstream   file(file_path, std::ios::binary);
-  PCG_point_cloud val;
+  std::ifstream        file(file_path, std::ios::binary | std::ios::ate);
+  PCG_point_cloud      val;
+  const std::streampos file_size = file.tellg();
 
-  auto file_buf = reinterpret_cast<const double *>(file.rdbuf());
-  auto file_size = file.gcount();
-  for (int i = 0; i < file.gcount(); ++i) {
-  }
+  std::vector<char> raw_content;
+  raw_content.resize(file_size);
 
-  double x, y, z;
-  while (file >> x >> y >> z) {
-    val.points.push_back(x);
-    val.points.push_back(y);
-    val.points.push_back(z);
-  }
-
+  file.seekg(0, std::ios::beg);
+  file.read(raw_content.data(), file_size);
   file.close();
+
+  auto d = reinterpret_cast<double *>(raw_content.data());
+
+  val.points.resize(file_size / sizeof(double));
+  std::copy_n(d, file_size / sizeof(double), val.points.begin());
+
   return val;
 }
 
