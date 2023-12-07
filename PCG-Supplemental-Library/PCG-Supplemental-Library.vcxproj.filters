@@ -21,10 +21,13 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PCG_supplemental_library.h">
+    <ClInclude Include="PSL_Clustering_impl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PCG_point_cloud.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PSL_clustering.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,7 +35,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PCG_supplemental_library.cpp">
+    <ClCompile Include="PSL_Clustering.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PCG_point_cloud.cpp">
