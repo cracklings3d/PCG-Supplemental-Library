@@ -7,11 +7,11 @@
 
 
 std::vector<size_t> PSL::Clustering::detect_cluster(std::vector<double> points) {
-  std::vector<size_t> val;
+  if (points.size() == 0) return {};
 
-  PSL::Point_set ps;
-
-  assert(points.size() % 3 == 0);
+  std::vector<size_t> val; 
+  PSL::Point_set ps; 
+  assert(points.size() % 3 == 0); 
 
   for (size_t i = 0; i < points.size(); i += 3) {
     ps.insert(PSL::Point_3(points[i], points[i + 1], points[i + 2]));
