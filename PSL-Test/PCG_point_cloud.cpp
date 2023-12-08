@@ -2,8 +2,8 @@
 #include <fstream>
 
 #include "PCG_point_cloud.h"
-#include "PSL_clustering_impl.h"
 
+#include "PSL_clustering_impl.h"
 #include "include/PSL_clustering.h"
 
 
@@ -29,7 +29,7 @@ PSL::PCG_point_cloud PSL::PCG_point_cloud::parse_file(const std::string &file_pa
 }
 
 void PSL::PCG_point_cloud::analyze_cluster() {
-  cluster_id = Clustering::detect_cluster(points);
+  cluster_id = PSL::Clustering::detect_cluster(points);
 }
 
 // overload << for _Point

@@ -1,6 +1,6 @@
 #include "pch.h"
 
-#include "../PCG-Supplemental-Library/PCG_point_cloud.h"
+#include "PCG_point_cloud.h"
 
 
 TEST(PCG_point_cloud, cluster_analysis) {

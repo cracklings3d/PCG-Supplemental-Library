@@ -24,13 +24,13 @@
     <ClInclude Include="PSL_clustering_impl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PCG_point_cloud.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\PSL_clustering.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PSL_domain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PSL_decl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -39,9 +39,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PSL_clustering_impl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PCG_point_cloud.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PSL_clustering.cpp">
