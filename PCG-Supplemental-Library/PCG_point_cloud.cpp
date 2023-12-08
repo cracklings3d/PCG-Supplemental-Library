@@ -2,13 +2,15 @@
 #include <fstream>
 
 #include "PCG_point_cloud.h"
-#include "PCG_supplemental_library.h"
+#include "PSL_clustering_impl.h"
+
+#include "include/PSL_clustering.h"
 
 
-PCG_point_cloud PCG_point_cloud::parse_file(const std::string &file_path) {
+PSL::PCG_point_cloud PSL::PCG_point_cloud::parse_file(const std::string &file_path) {
   // open file, and simply read sequentially as byte stream. The whole file contains only double floats from start to finish.
   std::ifstream        file(file_path, std::ios::binary | std::ios::ate);
-  PCG_point_cloud      val;
+  PSL::PCG_point_cloud val;
   const std::streampos file_size = file.tellg();
 
   std::vector<char> raw_content;
@@ -26,8 +28,8 @@ PCG_point_cloud PCG_point_cloud::parse_file(const std::string &file_path) {
   return val;
 }
 
-void PCG_point_cloud::analyze_cluster() {
-  cluster_id = PCG_supplemental_library::detect_cluster(points);
+void PSL::PCG_point_cloud::analyze_cluster() {
+  cluster_id = Clustering::detect_cluster(points);
 }
 
 // overload << for _Point
@@ -45,7 +47,7 @@ std::ostream &operator<<(std::ostream &os, const std::vector<T> &vec) {
   return os;
 }
 
-void PCG_point_cloud::write_clustered_result_to_file(const std::string &file_path) const {
+void PSL::PCG_point_cloud::write_clustered_result_to_file(const std::string &file_path) const {
   std::ofstream file(file_path, std::ios::binary);
 
   file << points;
