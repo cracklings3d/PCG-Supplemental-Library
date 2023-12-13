@@ -6,7 +6,7 @@
 #include "PSL_domain.h"
 
 
-std::vector<size_t> PSL::Clustering::detect_cluster(std::vector<double> points) {
+std::vector<size_t> PSL::Clustering::detect_cluster(const std::vector<double> &points) {
   if (points.size() == 0) return {};
 
   std::vector<size_t> val; 

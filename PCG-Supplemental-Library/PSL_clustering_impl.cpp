@@ -24,5 +24,5 @@ PSL::Point_set PSL::Clustering_impl::detect_cluster(Point_set points) {
   t.stop();
   std::cerr << "Clustering done in " << t.time() << " sec" << std::endl;
 
-return clustered_points;
+  return clustered_points;
 }
