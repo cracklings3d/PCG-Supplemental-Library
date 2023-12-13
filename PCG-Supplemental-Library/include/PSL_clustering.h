@@ -11,6 +11,6 @@ class Clustering_impl;
 
 class PSL_LIBRARY Clustering {
 public:
-  static std::vector<size_t> detect_cluster(std::vector<double> points);
+  static std::vector<size_t> detect_cluster(const std::vector<double> &points);
 };
 }
