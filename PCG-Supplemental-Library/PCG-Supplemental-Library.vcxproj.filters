@@ -30,9 +30,6 @@
     <ClInclude Include="PSL_domain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\PSL_decl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

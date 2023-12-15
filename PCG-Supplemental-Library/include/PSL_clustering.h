@@ -1,14 +1,11 @@
 #pragma once
 
-#include "PSL_decl.h"
+#include "PSL_framework.h"
 
-#include <string>
 #include <vector>
 
 
 namespace PSL {
-class Clustering_impl;
-
 class PSL_LIBRARY Clustering {
 public:
   static std::vector<size_t> detect_cluster(const std::vector<double> &points);

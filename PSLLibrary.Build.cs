@@ -18,15 +18,13 @@ public class PSLLibrary : ModuleRules {
     if (Target.Platform == UnrealTargetPlatform.Win64) {
       PublicAdditionalLibraries.Add(Path.Combine(ModuleDirectory, "x64", "Release", "PCG-Supplemental-Library.lib"));
 
-      PublicDelayLoadDLLs.Add("PCG-Supplemental-Library.dll");
-
       string compile_config;
       switch (Target.Configuration) {
         case UnrealTargetConfiguration.Debug:
         case UnrealTargetConfiguration.DebugGame:
         case UnrealTargetConfiguration.Development:
-          compile_config = "Debug";
-          break;
+          // compile_config = "Debug";
+          // break;
         case UnrealTargetConfiguration.Test:
         case UnrealTargetConfiguration.Shipping:
           compile_config = "Release";
@@ -43,9 +41,13 @@ public class PSLLibrary : ModuleRules {
       var psl_binaries_path = Path.Combine(plugin_binaries_dir, "PCG-Supplemental-Library.dll");
       File.Copy(psl_compile_result, psl_binaries_path, true);
 
-      if (Target.Configuration == UnrealTargetConfiguration.Debug ||
-          Target.Configuration == UnrealTargetConfiguration.DebugGame ||
-          Target.Configuration == UnrealTargetConfiguration.Development
+      PublicDelayLoadDLLs.Add("PCG-Supplemental-Library.dll");
+      RuntimeDependencies.Add(psl_binaries_path);
+
+      if (Target.Configuration is
+          UnrealTargetConfiguration.Debug
+          or UnrealTargetConfiguration.DebugGame
+          or UnrealTargetConfiguration.Development
          ) {
         // copy PSL pdb to binaries 
         var psl_compile_result_pdb = Path.Combine(compile_result_dir, "PCG-Supplemental-Library.pdb");
@@ -58,17 +60,18 @@ public class PSLLibrary : ModuleRules {
         case UnrealTargetConfiguration.Debug:
         case UnrealTargetConfiguration.DebugGame:
         case UnrealTargetConfiguration.Development:
-          var dependency_lib_dir = Path.Combine(ModuleDirectory, "external", "debug", "lib");
-          var dependency_libs = Directory.GetFiles(dependency_lib_dir, "*.lib");
-          PublicAdditionalLibraries.AddRange(dependency_libs);
-
-          var dependency_dll_dir = Path.Combine(ModuleDirectory, "external", "debug", "bin");
-          var dependency_dlls = Directory.GetFiles(dependency_dll_dir, "*.dll");
-          foreach (var dll in dependency_dlls) {
-            PublicDelayLoadDLLs.Add(Path.GetFileName(dll));
-          }
-
-          break;
+        // var dependency_lib_dir = Path.Combine(ModuleDirectory, "external", "debug", "lib");
+        // var dependency_libs = Directory.GetFiles(dependency_lib_dir, "*.lib");
+        // PublicAdditionalLibraries.AddRange(dependency_libs);
+        //
+        // var dependency_dll_dir = Path.Combine(ModuleDirectory, "external", "debug", "bin");
+        // var dependency_dlls = Directory.GetFiles(dependency_dll_dir, "*.dll");
+        // foreach (var dll in dependency_dlls) {
+        //   PublicDelayLoadDLLs.Add(Path.GetFileName(dll));
+        //   RuntimeDependencies.Add(dll);
+        // }
+        //
+        // break;
         case UnrealTargetConfiguration.Test:
         case UnrealTargetConfiguration.Shipping:
           var dependency_lib_dir_release = Path.Combine(ModuleDirectory, "external", "lib");
@@ -79,9 +82,13 @@ public class PSLLibrary : ModuleRules {
           var dependency_dlls_release = Directory.GetFiles(dependency_dll_dir_release, "*.dll");
           foreach (var dll in dependency_dlls_release) {
             PublicDelayLoadDLLs.Add(Path.GetFileName(dll));
+            RuntimeDependencies.Add(dll);
           }
 
           break;
+        case UnrealTargetConfiguration.Unknown:
+        default:
+          throw new ArgumentOutOfRangeException();
       }
 
       RuntimeDependencies.Add(psl_binaries_path);

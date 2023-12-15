@@ -8,10 +8,11 @@
 
 std::vector<size_t> PSL::Clustering::detect_cluster(const std::vector<double> &points) {
   if (points.size() == 0) return {};
+  auto data = points.data();
 
-  std::vector<size_t> val; 
-  PSL::Point_set ps; 
-  assert(points.size() % 3 == 0); 
+  std::vector<size_t> val;
+  PSL::Point_set      ps;
+  assert(points.size() % 3 == 0);
 
   for (size_t i = 0; i < points.size(); i += 3) {
     ps.insert(PSL::Point_3(points[i], points[i + 1], points[i + 2]));

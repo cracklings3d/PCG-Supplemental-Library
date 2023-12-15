@@ -71,7 +71,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -147,7 +150,6 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="include\PSL_clustering.h" />
-    <ClInclude Include="include\PSL_decl.h" />
     <ClInclude Include="PSL_clustering_impl.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PSL_domain.h" />
