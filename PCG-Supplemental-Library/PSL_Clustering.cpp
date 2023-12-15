@@ -22,7 +22,7 @@ std::vector<size_t> PSL::Clustering::detect_cluster(const std::vector<double> &p
 
   const size_t *d = clustered_points.property_map<size_t>("cluster id").first.data();
   // copy from d to val
-  std::copy_n(d, points.size(), std::back_inserter(val));
+  std::copy_n(d, points.size(), val.data());
 
   assert(points.size() == val.size());
   return val;
